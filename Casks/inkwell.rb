@@ -1,16 +1,21 @@
 cask "inkwell" do
-  version "0.2.0"
-  sha256 "574fe1627e605179c2d47205aaaddcab13f9c739e3554503df17c72af9953c27"
+  version "1.0.1"
+  sha256 "1210d481f8c048c602488b60cc8f628b7054da40cbd874a55d78f4219bdbf7d9"
 
   url "https://github.com/cschuman/inkwell/releases/download/v#{version}/Inkwell-#{version}.dmg"
   name "Inkwell"
-  desc "Native macOS markdown viewer with high performance"
+  desc "Fast, native markdown viewer for macOS"
   homepage "https://github.com/cschuman/inkwell"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   app "Inkwell.app"
 
   zap trash: [
-    "~/Library/Preferences/com.inkwell.markdown.plist",
-    "~/Library/Saved Application State/com.inkwell.markdown.savedState",
+    "~/Library/Preferences/com.coreymd.inkwell.plist",
+    "~/Library/Saved Application State/com.coreymd.inkwell.savedState",
   ]
 end
